@@ -1,5 +1,8 @@
 <script>
 	import { contextMenu } from '$lib';
+
+	const ele = document.createElement('p');
+	ele.innerText = 'hi'
 </script>
 
 <div
@@ -8,7 +11,8 @@
 			{
 				type: 'button',
 				content: 'Hi',
-				callback: () => window.alert('hi')
+				callback: () => window.alert('hi'),
+				precontent: ele
 			},
 			{
 				type: 'button',
@@ -21,21 +25,6 @@
 			{
 				type: 'button',
 				content: 'Hi 2',
-				callback: () => window.alert('hi')
-			},
-			{
-				type: 'button',
-				content: 'Hi 3',
-				callback: () => window.alert('hi')
-			},
-			{
-				type: 'button',
-				content: 'Hi 4',
-				callback: () => window.alert('hi')
-			},
-			{
-				type: 'button',
-				content: 'Hi 5',
 				callback: () => window.alert('hi')
 			},
 		]
