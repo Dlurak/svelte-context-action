@@ -11,6 +11,21 @@ type ButtonItem = BaseItem<'button'> & {
 
 export type Item = DividerItem | ButtonItem;
 
+export type MenuStyle = {
+	borderRadius?: string;
+	bgColor?: string;
+	padding?: string;
+	gap?: string;
+
+	minWidth?: string;
+	maxHeight?: string;
+};
+
+export type Style = {
+	menu?: MenuStyle;
+};
+
 export interface ContextConfig {
 	items: Item[];
+	style?: Style;
 }

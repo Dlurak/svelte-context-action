@@ -1,18 +1,15 @@
 <script>
 	import { contextMenu } from '$lib';
-
-	const ele = document.createElement('p');
-	ele.innerText = 'hi'
 </script>
 
 <div
+	class="box"
 	use:contextMenu={{
 		items: [
 			{
 				type: 'button',
 				content: 'Hi',
 				callback: () => window.alert('hi'),
-				precontent: ele
 			},
 			{
 				type: 'button',
@@ -27,14 +24,17 @@
 				content: 'Hi 2',
 				callback: () => window.alert('hi')
 			},
-		]
+		],
+		style: { menu: {
+			bgColor: 'red'
+		} }
 	}}
 >
 	Right click me
 </div>
 
 <style>
-	div {
+	.box {
 		aspect-ratio: 1;
 		width: 12rem;
 		display: flex;
