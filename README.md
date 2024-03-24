@@ -1,6 +1,6 @@
 # svelte-context-action
 
-Create right-click context menus with Svelte actions.
+Svelte context action provides a svelte action to create highly configurable context/right click menus.
 
 ## Installation
 
@@ -51,4 +51,4 @@ $ pnpm add svelte-context-action
 
 ## Documentation
 
-At this very early stage there is no documentation yet. Please refer to the example above as well as to the type system when using this package.
+Documentation is available using a GitHub Wiki [here](https://github.com/Dlurak/svelte-context-action/wiki).
