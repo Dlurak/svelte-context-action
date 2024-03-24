@@ -21,8 +21,19 @@ export type MenuStyle = {
 	maxHeight?: string;
 };
 
+export type ButtonStyle = {
+	borderRadius?: string;
+	bgColor?: string;
+	bgColorHover?: string;
+	gap?: string;
+	padding?: string;
+	color?: string;
+	border?: string;
+};
+
 export type Style = {
 	menu?: MenuStyle;
+	button?: ButtonStyle;
 };
 
 export interface ContextConfig {

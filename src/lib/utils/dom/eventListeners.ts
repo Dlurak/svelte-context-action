@@ -20,5 +20,5 @@ export function addMultipleEventListeners(
 		for (const eventName of events) {
 			element.removeEventListener(eventName, callback);
 		}
-	}
+	};
 }

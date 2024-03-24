@@ -1,4 +1,4 @@
-import type { MenuStyle, Style } from '$lib/types.js';
+import type { ButtonStyle, MenuStyle, Style } from '$lib/types.js';
 
 const defaultStyles = {
 	menu: {
@@ -9,26 +9,34 @@ const defaultStyles = {
 
 		minWidth: '5rem',
 		maxHeight: '50%'
+	},
+	button: {
+		gap: '0.25rem',
+		padding: '0.5rem',
+		bgColor: '#333',
+		bgColorHover: '#444',
+		color: 'white',
+		border: 'none',
+		borderRadius: '0.25rem'
 	}
 } satisfies Style;
 
-type MenuBaseToken = keyof MenuStyle;
-type MenuToken = `menu-${MenuBaseToken}`;
-type GlobalToken = Exclude<keyof Style, 'menu'>;
-export type StyleToken = GlobalToken | MenuToken;
+type StyleMasterToken = keyof Style;
+
+type MenuToken = `menu-${keyof MenuStyle}`;
+type ButtonToken = `button-${keyof ButtonStyle}`;
+export type StyleToken = MenuToken | ButtonToken;
 
 export function getStyle(token: StyleToken, style: Style) {
-	const tokenIsMenu = token.startsWith('menu-');
+	const group = token.split('-')[0] as StyleMasterToken;
 
-	if (!tokenIsMenu) {
-		const typedToken = token as GlobalToken;
-		return style[typedToken] || `var(--ctx-${token}, ${defaultStyles[typedToken]})`;
-	}
+	const specificToken = token.replace(/[a-zA-Z]+-/, '');
+	const specificStyles = style[group];
 
-	const { menu } = style;
-	const menuToken = token.replace(/menu-/, '') as MenuBaseToken;
+	// @ts-expect-error
+	const setValue = (specificStyles || {})[specificToken] as string;
+	// @ts-expect-error
+	const defaultValue = `var(--ctx-${token}, ${defaultStyles[group][specificToken]})`;
 
-	const setValue = (menu || {})[menuToken];
-	const defaultValue = `var(--ctx-${token}, ${defaultStyles.menu[menuToken]})`;
 	return setValue || defaultValue;
 }

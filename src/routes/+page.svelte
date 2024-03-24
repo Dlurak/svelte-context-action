@@ -1,33 +1,32 @@
-<script>
+<script lang="ts">
 	import { contextMenu } from '$lib';
+
+	const items = [
+		{
+			type: 'button',
+			content: 'Hi',
+			callback: () => window.alert('hi')
+		},
+		{
+			type: 'button',
+			content: 'Hi 1',
+			callback: () => window.alert('hi')
+		},
+		{
+			type: 'divider'
+		},
+		{
+			type: 'button',
+			content: 'Hi 2',
+			callback: () => window.alert('hi')
+		}
+	] as const;
 </script>
 
 <div
 	class="box"
 	use:contextMenu={{
-		items: [
-			{
-				type: 'button',
-				content: 'Hi',
-				callback: () => window.alert('hi'),
-			},
-			{
-				type: 'button',
-				content: 'Hi 1',
-				callback: () => window.alert('hi')
-			},
-			{
-				type: 'divider'
-			},
-			{
-				type: 'button',
-				content: 'Hi 2',
-				callback: () => window.alert('hi')
-			},
-		],
-		style: { menu: {
-			bgColor: 'red'
-		} }
+		items
 	}}
 >
 	Right click me
