@@ -9,6 +9,10 @@ export function createItem(item: Item, config: ContextConfig) {
 			const ele = document.createElement('hr');
 
 			ele.style.width = getStyleConfig('divider-width');
+			ele.style.borderRadius = getStyleConfig('divider-borderRadius');
+			ele.style.borderColor = getStyleConfig('divider-borderColor');
+			ele.style.height = getStyleConfig('divider-height');
+			ele.style.display = getStyleConfig('divider-display');
 
 			return ele;
 		case 'button':
@@ -44,6 +48,6 @@ export function createItem(item: Item, config: ContextConfig) {
 
 			return newButton;
 		case 'custom':
-			return item.element
+			return item.element;
 	}
 }

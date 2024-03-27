@@ -10,8 +10,8 @@ type ButtonItem = BaseItem<'button'> & {
 };
 
 type CustomItem = BaseItem<'custom'> & {
-	element: HTMLElement
-}
+	element: HTMLElement;
+};
 
 export type Item = DividerItem | ButtonItem | CustomItem;
 
@@ -40,7 +40,11 @@ export type ButtonStyle = {
 
 export type DividerStyle = {
 	width?: string;
-}
+	borderRadius?: string;
+	borderColor?: string;
+	height?: string;
+	display?: string;
+};
 
 export type Style = {
 	menu?: MenuStyle;

@@ -22,7 +22,11 @@ const defaultStyles = {
 		outline: 'none'
 	},
 	divider: {
-		width: '90%'
+		width: '90%',
+		borderRadius: '100vmax',
+		borderColor: '#9ca2af',
+		height: '2px',
+		display: 'initial'
 	}
 } satisfies Style;
 
@@ -30,7 +34,7 @@ type StyleMasterToken = keyof Style;
 
 type MenuToken = `menu-${keyof MenuStyle}`;
 type ButtonToken = `button-${keyof ButtonStyle}`;
-type DividerToken = `divider-${keyof DividerStyle}`
+type DividerToken = `divider-${keyof DividerStyle}`;
 export type StyleToken = MenuToken | ButtonToken | DividerToken;
 
 export function getStyle(token: StyleToken, style: Style) {
