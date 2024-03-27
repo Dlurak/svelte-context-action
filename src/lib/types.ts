@@ -29,11 +29,19 @@ export type ButtonStyle = {
 	padding?: string;
 	color?: string;
 	border?: string;
+
+	margin?: string;
+	outline?: string;
 };
+
+export type DividerStyle = {
+	width?: string;
+}
 
 export type Style = {
 	menu?: MenuStyle;
 	button?: ButtonStyle;
+	divider?: DividerStyle;
 };
 
 export interface ContextConfig {

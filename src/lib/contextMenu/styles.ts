@@ -1,4 +1,4 @@
-import type { ButtonStyle, MenuStyle, Style } from '$lib/types.js';
+import type { ButtonStyle, DividerStyle, MenuStyle, Style } from '$lib/types.js';
 
 const defaultStyles = {
 	menu: {
@@ -17,7 +17,12 @@ const defaultStyles = {
 		bgColorHover: '#444',
 		color: 'white',
 		border: 'none',
-		borderRadius: '0.25rem'
+		borderRadius: '0.25rem',
+		margin: 'initial',
+		outline: 'none'
+	},
+	divider: {
+		width: '90%'
 	}
 } satisfies Style;
 
@@ -25,7 +30,8 @@ type StyleMasterToken = keyof Style;
 
 type MenuToken = `menu-${keyof MenuStyle}`;
 type ButtonToken = `button-${keyof ButtonStyle}`;
-export type StyleToken = MenuToken | ButtonToken;
+type DividerToken = `divider-${keyof DividerStyle}`
+export type StyleToken = MenuToken | ButtonToken | DividerToken;
 
 export function getStyle(token: StyleToken, style: Style) {
 	const group = token.split('-')[0] as StyleMasterToken;

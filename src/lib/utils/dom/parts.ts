@@ -2,10 +2,14 @@ import { getStyle, type StyleToken } from '$lib/contextMenu/styles.js';
 import type { ContextConfig, Item } from '$lib/types.js';
 
 export function createItem(item: Item, config: ContextConfig) {
+	const getStyleConfig = (tok: StyleToken) => getStyle(tok, config.style || {});
+
 	switch (item.type) {
 		case 'divider':
 			const ele = document.createElement('hr');
-			ele.style.width = '90%';
+
+			ele.style.width = getStyleConfig('divider-width');
+
 			return ele;
 		case 'button':
 			const newButton = document.createElement('button');
@@ -17,8 +21,6 @@ export function createItem(item: Item, config: ContextConfig) {
 
 			newButton.appendChild(contentEle);
 
-			const getStyleConfig = (tok: StyleToken) => getStyle(tok, config.style || {});
-
 			newButton.style.backgroundColor = getStyleConfig('button-bgColor');
 			newButton.style.display = 'flex';
 			newButton.style.color = getStyleConfig('button-color');
@@ -28,6 +30,8 @@ export function createItem(item: Item, config: ContextConfig) {
 			newButton.style.flexDirection = 'row';
 			newButton.style.alignItems = 'center';
 			newButton.style.padding = getStyleConfig('button-padding');
+			newButton.style.margin = getStyleConfig('button-margin');
+			newButton.style.outline = getStyleConfig('button-outline');
 
 			newButton.addEventListener('mouseenter', () => {
 				newButton.style.backgroundColor = getStyleConfig('button-bgColorHover');
