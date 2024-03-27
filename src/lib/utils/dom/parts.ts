@@ -43,5 +43,7 @@ export function createItem(item: Item, config: ContextConfig) {
 			newButton.addEventListener('click', item.callback);
 
 			return newButton;
+		case 'custom':
+			return item.element
 	}
 }

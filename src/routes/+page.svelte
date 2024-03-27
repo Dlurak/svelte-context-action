@@ -18,7 +18,24 @@
 		{
 			type: 'button',
 			content: 'Hi 2',
-			callback: () => window.alert('hi')
+			callback: () => window.alert('hi'),
+			precontent: (() => {
+				const ele = document.createElement('p');
+				ele.innerText = 'Pre'
+				ele.style.color = 'red'
+				ele.style.outline = '1px solid blue'
+				return ele
+			})()
+		},
+		{
+			type: "custom",
+			element: (() => {
+				const ele = document.createElement('p');
+				ele.innerText = 'Custom'
+				ele.style.color = 'yellow'
+				ele.style.outline = '1px solid green'
+				return ele
+			})()
 		}
 	] as const;
 </script>

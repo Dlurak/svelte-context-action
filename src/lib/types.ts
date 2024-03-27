@@ -9,7 +9,11 @@ type ButtonItem = BaseItem<'button'> & {
 	precontent?: HTMLElement;
 };
 
-export type Item = DividerItem | ButtonItem;
+type CustomItem = BaseItem<'custom'> & {
+	element: HTMLElement
+}
+
+export type Item = DividerItem | ButtonItem | CustomItem;
 
 export type MenuStyle = {
 	borderRadius?: string;
